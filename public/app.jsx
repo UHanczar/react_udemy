@@ -24,18 +24,38 @@ const GreeterForm = React.createClass({
     e.preventDefault();
 
     const name = this.refs.name.value;
+    const message = this.refs.message.value;
+
+    const updates = {};
 
     if (name.length > 0) {
       this.refs.name.value = '';
-      this.props.onNewName(name);
+      updates.name = name;
     }
+
+    if(message.length > 0) {
+      this.refs.message.value = '';
+      updates.message = message;
+    }
+
+    this.props.onNewData(updates);
   },
 
   render: function() {
     return (
       <form onSubmit={this.onFormSubmit}>
-        <input type="text" ref="name" />
-        <button>Name</button>
+        <div>
+          <input type='text' ref='name' placeholder='Enter name' />
+        </div>
+
+        <div>
+          <textarea ref='message' placeholder='Enter message'/>
+        </div>
+
+        <div>
+          <button>Name</button>
+        </div>
+
       </form>
     );
   }
@@ -52,28 +72,27 @@ const Greeter = React.createClass({
 
   getInitialState: function() {
     return {
-      name: this.props.name
+      name: this.props.name,
+      message: this.props.message
     };
   },
 
-  handleNewName: function(name) {
-    this.setState({
-      name: name
-    })
+  handleNewData: function(updates) {
+    this.setState(updates)
   },
 
   render() {
     const name = this.state.name;
-    const message = this.props.message;
+    const message = this.state.message;
 
     return (
       <div className="container">
         <GreeterMessage name={name} message={message} />
 
-        <GreeterForm onNewName={this.handleNewName} />
+        <GreeterForm onNewData={this.handleNewData} />
       </div>
     );
   }
 });
 
-ReactDOM.render(<Greeter name={anotherName} message={outerMassage} />, document.getElementById('root'));
+ReactDOM.render(<Greeter />, document.getElementById('root'));
