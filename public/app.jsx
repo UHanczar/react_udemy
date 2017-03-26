@@ -14,15 +14,28 @@ const Greeter = React.createClass({
     };
   },
 
+  getInitialState: function() {
+    return {
+      name: this.props.name
+    };
+  },
+
   onButtonClick: function(e) {
     e.preventDefault();
-    const name = this.refs.name.value;
 
-    alert(name);
+    let nameRef = this.refs.name;
+    let name = nameRef.value;
+    nameRef.value = '';
+
+    if(typeof name === 'string' && name.length > 0) {
+      this.setState({
+        name: name
+      });
+    }
   },
 
   render() {
-    const name = this.props.name;
+    const name = this.state.name;
     const message = this.props.message;
 
     return (
