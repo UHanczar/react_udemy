@@ -7,13 +7,14 @@ let outerMassage = 'FROM OUTER STRING';
 
 const GreeterMessage = React.createClass({
   render: function() {
-    const name = this.props.nameProps;
-    const message = this.props.messageProps;
-    const gettingHello = this.props.greet;
+    // from nameProps
+    const name = this.props.name;
+    // from messageProps
+    const message = this.props.message;
 
     return (
       <div>
-        <h1>{gettingHello} {name}!</h1>
+        <h1> Hello, {name}!</h1>
         <p>{message}</p>
       </div>
     );
@@ -32,12 +33,14 @@ const GreeterForm = React.createClass({
 
     if (name.length > 0) {
       this.refs.name.value = '';
-      updates.nameInitState = name;
+      // updates nameInitState
+      updates.name = name;
     }
 
     if(message.length > 0) {
       this.refs.message.value = '';
-      updates.messageInitState = message;
+      // updates messageInitState
+      updates.message = message;
     }
 
     this.props.onNewData(updates);
@@ -67,15 +70,19 @@ const Greeter = React.createClass({
   // build-in function, which return object props: this.props ; is used when no variable was passed
   getDefaultProps: function() {
     return {
-      nameInitProps: 'Cary',
-      messageInitProps: 'This is my first default props react function!'
+      // nameInitProps
+      name: 'Cary',
+      // messageInitProps
+      message: 'This is my first default props react function!'
     };
   },
 
   getInitialState: function() {
     return {
-      nameInitState: this.props.nameInitProps,
-      messageInitState: this.props.messageInitProps
+      // nameInitState from nameInitProps
+      name: this.props.name,
+      //messageInitState from messageInitProps
+      message: this.props.message
     };
   },
 
@@ -84,14 +91,18 @@ const Greeter = React.createClass({
   },
 
   render() {
-    let anotherName = 'Taya';
-    let outerMassage = 'FROM OUTER STRING';
-    const nameFromState = this.state.nameInitState;
-    const messageFromState = this.state.messageInitState;
+    const anotherName = 'Taya';
+    const outerMassage = 'FROM OUTER STRING';
+    // nameFromState from nameInitState
+    const name = this.state.name;
+    // messageFromState from messageInitState
+    const message = this.state.message;
 
     return (
       <div className="container">
-        <GreeterMessage greet='Hello!' nameProps={nameFromState} messageProps={messageFromState} />
+        {/* nameProps={nameFromState} */}
+        {/* messageProps={messageFromState} */}
+        <GreeterMessage name={name} message={message} />
 
         <GreeterForm onNewData={this.handleNewData} />
       </div>
