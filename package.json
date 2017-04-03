@@ -6,7 +6,8 @@
   "repository": "https://github.com/UHanczar/react_udemy.git",
   "scripts": {
     "server": "babel-node server.js",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "start": "npm-run-all --parallel server watch"
   },
   "author": "Uladzimir <u.hanczar@gmail.com>",
   "license": "MIT",
@@ -25,12 +26,14 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
+    "npm-run-all": "^4.0.2",
     "webpack": "^2.3.2"
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "express": "^4.15.2",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-router": "3.0.0"
   }
 }
