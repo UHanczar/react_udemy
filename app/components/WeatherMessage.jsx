@@ -1,13 +1,11 @@
 import React from 'react';
 
-const WeatherMessage = React.createClass({
-  render: function() {
-    const {temp, location} = this.props;
+const WeatherMessage = (props) => {
+  const {temp, location} = props;
 
-    return (
-      <div>It is {temp} degree in {location}.</div>
-    );
-  }
-});
+  return (
+    <div>It is {temp} degree in {location}.</div>
+  );
+};
 
 export default WeatherMessage;
