@@ -2,18 +2,23 @@ import React from 'react';
 
 import WeatherForm from './WeatherForm';
 import WeatherMessage from './WeatherMessage';
+import getTemp from './../api/openWeatherMap';
 
 const Weather = React.createClass({
   getInitialState: function () {
     return {
       location: 'Miami',
-      temp: 88
+      temp: 35
     };
   },
   handleSearch: function (location) {
-    this.setState({
-      location: location,
-      temp: 23
+    getTemp(location).then((temp) => {
+      this.setState({
+        location: location,
+        temp: temp
+      });
+    }, (errorMessage) => {
+      console.info(errorMessage);
     });
   },
   render: function() {
