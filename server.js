@@ -1,18 +1,18 @@
 import express from 'express';
 
+// environtment variable for heroku
+// const PORT = process.env.PORT || 3000;
+
 // creating our app
 // calling express library
 const app = express();
 
-// environtment variable for heroku
-const port = process.env.PORT || 3000;
-
 // using express middleware for redirectiong openweathermap traffic from https to http
-app.use(function (req, res, next){
-  if (req.headers['x-forwarded-proto'] === 'http') {
-    next();
+app.use((req, res, next) => {
+  if (req.headers['x-forwarded-proto'] !== 'http') {
+    res.redirect(`http://${req.hostname}${req.url}`);
   } else {
-    res.redirect('http://' + req.hostname + req.url);
+    next();
   }
 });
 
@@ -20,4 +20,4 @@ app.use(function (req, res, next){
 app.use(express.static('public'));
 
 // starting the server using port and callback function
-app.listen(port, () => console.log(`Express server is up on port ${port}`));
+app.listen(process.env.PORT || 3000, () => console.log(`Express server is up on port 3000`));
