@@ -5,9 +5,9 @@
   "main": "index.js",
   "repository": "https://github.com/UHanczar/react_udemy.git",
   "scripts": {
-    "server": "babel-node server.js",
+    "start": "babel-node server.js",
     "watch": "webpack --watch",
-    "start": "npm-run-all --parallel server watch"
+    "server": "npm-run-all --parallel server watch"
   },
   "author": "Uladzimir <u.hanczar@gmail.com>",
   "license": "MIT",
