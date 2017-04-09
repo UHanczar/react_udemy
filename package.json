@@ -6,7 +6,7 @@
   "repository": "https://github.com/UHanczar/react_udemy.git",
   "scripts": {
     "start": "./node_modules/.bin/babel-node server.js",
-    "localserver": "babel-node local_server.js",
+    "localserver": "babel-node server.js",
     "watch": "webpack --watch",
     "server": "npm-run-all --parallel server watch"
   },
