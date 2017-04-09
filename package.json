@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": "https://github.com/UHanczar/react_udemy.git",
   "scripts": {
-    "start": "node server.js",
+    "start": "./node_modules/.bin/babel-node server.js",
     "go": "babel-node server.js",
     "watch": "webpack --watch",
     "server": "npm-run-all --parallel server watch"
@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "axios": "^0.16.0",
+    "babel": "^6.23.0",
     "babel-polyfill": "^6.23.0",
     "express": "^4.15.2",
     "react": "^15.4.2",
