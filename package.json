@@ -5,7 +5,8 @@
   "main": "index.js",
   "repository": "https://github.com/UHanczar/react_udemy.git",
   "scripts": {
-    "start": "babel-node server.js",
+    "start": "node server.js",
+    "go": "babel-node server.js",
     "watch": "webpack --watch",
     "server": "npm-run-all --parallel server watch"
   },
