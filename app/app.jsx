@@ -3,6 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Route, Router, IndexRoute, hashHistory} from 'react-router';
 
+import foundation from 'style-loader!css-loader!foundation-sites/dist/css/foundation.min.css';
+
 import Main from './components/Main';
 import Weather from './components/Weather';
 import About from './components/About';

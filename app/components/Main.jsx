@@ -6,7 +6,7 @@ const Main = (props) => {
   return (
     <div>
       <Nav />
-      <h2>Main component</h2>
+      <h2>Main component!</h2>
       {props.children}
     </div>
   );

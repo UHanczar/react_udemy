@@ -1,8 +1,21 @@
+import webpack from 'webpack';
 import path from 'path';
 
 export default {
   entry: [
+    'script!jquery/dist/jquery.min.js',
+    'script!foundation-sites/dist/js/foundation.min.js',
     path.resolve(__dirname, './app/app.jsx')
+  ],
+  externals: {
+    jquery: 'jQuery'
+  },
+  // ProvidePlugin loading nessesasy modules when they are required
+  plugins: [
+    new webpack.ProvidePlugin({
+      '$': 'jquery',
+      'jQuery': 'jquery'
+    })
   ],
   output: {
     path: path.resolve(__dirname, 'public'),
