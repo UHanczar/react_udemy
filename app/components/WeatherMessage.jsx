@@ -6,7 +6,7 @@ const WeatherMessage = ({temp, location}) => {
   */}
 
   return (
-    <div>It is {temp} degree in {location}.</div>
+    <h3 className='text-center'>It is {temp} degree in {location}.</h3>
   );
 };
 

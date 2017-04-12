@@ -3,8 +3,8 @@ import path from 'path';
 
 export default {
   entry: [
-    'script!jquery/dist/jquery.min.js',
-    'script!foundation-sites/dist/js/foundation.min.js',
+    'script-loader!jquery/dist/jquery.min.js',
+    'script-loader!foundation-sites/dist/js/foundation.min.js',
     path.resolve(__dirname, './app/app.jsx')
   ],
   externals: {
@@ -13,8 +13,8 @@ export default {
   // ProvidePlugin loading nessesasy modules when they are required
   plugins: [
     new webpack.ProvidePlugin({
-      '$': 'jquery',
-      'jQuery': 'jquery'
+      $: 'jquery',
+      jQuery: 'jquery'
     })
   ],
   output: {
