@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Route, Router, IndexRoute, hashHistory} from 'react-router';
 
-import foundation from 'style-loader!css-loader!foundation-sites/dist/css/foundation.min.css';
+import Foundation from 'style-loader!css-loader!foundation-sites/dist/css/foundation.min.css';
 import $ from 'jquery';
 
 import Main from './components/Main';
