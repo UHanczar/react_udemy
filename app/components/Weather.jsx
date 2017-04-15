@@ -1,5 +1,6 @@
-import React from 'react';
+import 'style-loader!css-loader!sass-loader!../styles/app.scss';
 
+import React from 'react';
 import WeatherForm from './WeatherForm';
 import WeatherMessage from './WeatherMessage';
 import ErrorModal from './ErrorModal';
@@ -11,11 +12,29 @@ const Weather = React.createClass({
       isLoading: false
     };
   },
+  componentDidMount() {
+    const location = this.props.location.query.location;
+
+    if(location && location.length > 0) {
+      this.handleSearch(location);
+      window.location.hash = '#/';
+    }
+  },
+  componentWillReceiveProps(newProps) {
+    const location = newProps.location.query.location;
+
+    if(location && location.length > 0) {
+      this.handleSearch(location);
+      window.location.hash = '#/';
+    }
+  },
   handleSearch: function (location) {
 
     this.setState({
       isLoading: true,
-      erroMessage: undefined
+      erroMessage: undefined,
+      location: undefined,
+      temp: undefined
     });
 
     getTemp(location).then((temp) => {
@@ -52,7 +71,7 @@ const Weather = React.createClass({
 
     return (
       <div>
-        <h3>Weather component</h3>
+        <h1 className='text-center page-title'>Get Weather</h1>
         <WeatherForm onSearch={this.handleSearch} />
         { renderMessage() }
         { renderError() }
