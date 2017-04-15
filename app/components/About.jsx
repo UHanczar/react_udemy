@@ -3,7 +3,7 @@ import React from 'react';
 {/* we can do ctateless (presentational) components like this too*/}
 const About = (props) => (
   <div>
-    <h1 className='text-center'>About</h1>
+    <h1 className='text-center page-title'>About</h1>
     <p>This is weather application built on React. I have built it for complete react web developers course. Here is some of the tools I have used:</p>
     <ul>
       <li>
